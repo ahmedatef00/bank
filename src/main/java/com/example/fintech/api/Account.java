@@ -1,15 +1,20 @@
 package com.example.fintech.api;
 
-import com.example.fintech.entity.enums.AccountType;
+import com.example.fintech.domain.entity.enums.AccountType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 
-import javax.naming.Name;
 import java.math.BigDecimal;
 import java.util.List;
 
-@AllArgsConstructor
 public class Account {
+
+    public Account(int cusomerId,BigDecimal balance, AccountType type, List<Transaction> transactions) {
+        this.balance = balance;
+        this.type = type;
+        this.transactions = transactions;
+    }
+
     @JsonProperty("balance")
     private BigDecimal balance;
     @JsonProperty("type")
@@ -17,6 +22,5 @@ public class Account {
     @JsonProperty("transaction")
     List<Transaction> transactions;
 
-    public Account(int cusomerId, BigDecimal balance, AccountType type, List<Transaction> transactions) {
-    }
+
 }

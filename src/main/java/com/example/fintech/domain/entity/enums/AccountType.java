@@ -1,4 +1,4 @@
-package com.example.fintech.entity.enums;
+package com.example.fintech.domain.entity.enums;
 
 public enum AccountType {
 

@@ -1,6 +1,6 @@
 package com.example.fintech.repository;
 
-import com.example.fintech.entity.AccountEntity;
+import com.example.fintech.domain.entity.AccountEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
