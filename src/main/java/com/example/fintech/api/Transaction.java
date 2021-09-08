@@ -6,14 +6,13 @@ import lombok.AllArgsConstructor;
 
 import java.math.BigDecimal;
 
-@AllArgsConstructor
 
 public class Transaction {
 
     @JsonProperty("accountId")
-    int accountId;
+    public int accountId;
     @JsonProperty("type")
-    TransactionType type;
+    public TransactionType type;
     @JsonProperty("amount")
     public BigDecimal amount;
 
