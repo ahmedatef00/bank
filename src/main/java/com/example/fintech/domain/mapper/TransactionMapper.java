@@ -4,6 +4,7 @@ import com.example.fintech.domain.dto.TransactionDTO;
 import com.example.fintech.domain.entity.TransactionEntity;
 import org.hibernate.engine.internal.Collections;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * By adding componentModel = “spring”,
@@ -12,7 +13,12 @@ import org.mapstruct.Mapper;
  */
 @Mapper(componentModel = "spring", imports = Collections.class)
 public abstract class TransactionMapper {
+
     public abstract TransactionDTO toDto(TransactionEntity transactionEntity);
 
-    public abstract TransactionEntity toEntity(TransactionDTO transactionDTO);
+
+
+    @Mapping(source = "accountId",target = "accountId")
+    @Mapping(source = "amount",target = "amount")
+    public abstract TransactionEntity trxDtoToEntity(TransactionDTO transactionDTO);
 }

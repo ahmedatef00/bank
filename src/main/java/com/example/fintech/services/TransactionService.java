@@ -39,7 +39,7 @@ public class TransactionService {
     }
 
     public void createTransaction(TransactionDTO dto) {
-        TransactionEntity transactionEntity = transactionMapper.toEntity(dto);
+        TransactionEntity transactionEntity = transactionMapper.trxDtoToEntity(dto);
         transactionRepository.save(transactionEntity);
     }
 

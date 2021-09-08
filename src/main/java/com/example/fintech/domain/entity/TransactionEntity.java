@@ -1,10 +1,7 @@
 package com.example.fintech.domain.entity;
 
 import com.example.fintech.domain.entity.enums.TransactionType;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +15,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "account_transaction")
 
-public class TransactionEntity {
 
+@Setter
+public class TransactionEntity {
 
 
     @Id

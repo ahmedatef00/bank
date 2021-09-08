@@ -1,13 +1,11 @@
 package com.example.fintech.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Data
+@Builder
 @RequiredArgsConstructor
 public class AccountDTO {
 

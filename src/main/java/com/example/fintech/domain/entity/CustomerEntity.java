@@ -3,6 +3,8 @@ package com.example.fintech.domain.entity;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 import static javax.persistence.GenerationType.IDENTITY;
-
+@Setter
 @Entity
 @Table(name = "customer")
 public class CustomerEntity {

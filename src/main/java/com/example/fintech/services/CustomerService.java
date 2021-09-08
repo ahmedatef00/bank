@@ -18,7 +18,6 @@ import java.util.stream.StreamSupport;
 import static java.lang.String.format;
 
 @Service
-@Log4j
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
@@ -60,5 +59,9 @@ public class CustomerService {
         accountService.createAccount(account);
         customer.setBalance(customer.getBalance().add(account.getInitialCredit()));
         customerRepository.save(customer);
+    }
+
+    public void addCustomers(CustomerEntity customerEntity) {
+         customerRepository.save(customerEntity);
     }
 }

@@ -2,27 +2,23 @@ package com.example.fintech.domain.dto;
 
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Setter
 public class TransactionDTO {
 
     public TransactionDTO(int accountId, BigDecimal amount) {
         this.accountId = accountId;
         this.amount = amount;
     }
+    public TransactionDTO(){}
 
-    @NotNull
-    private int accountId;
-    @NotNull
-    private BigDecimal amount;
+    private  int accountId;
+    private  BigDecimal amount;
 
-    public TransactionDTO() {
 
-    }
 
     public int getAccountId() {
         return accountId;

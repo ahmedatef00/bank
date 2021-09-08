@@ -44,28 +44,32 @@ public class AccountService {
 
         System.out.println("ces" + cusomerId);
         List<Account> accounts = accountRepository.findByCustomerId(cusomerId).stream().map(
-                (accountEntity) ->{
+                (accountEntity) -> {
                     System.out.println("ces::: BALANCE" + accountEntity.getBalance());
                     System.out.println("ces::: type" + accountEntity.getType());
                     System.out.println("ces::: ID" + accountEntity.getId());
 
-       return new Account(
-                        cusomerId,
-                        accountEntity.getBalance(),
-                        accountEntity.getType(),
-                        transactionService.getTransactions(accountEntity.getId())
+                    return new Account(
+                            cusomerId,
+                            accountEntity.getBalance(),
+                            accountEntity.getType(),
+                            transactionService.getTransactions(accountEntity.getId())
 
 
-       );}).collect(Collectors.toList());
+                    );
+                }).collect(Collectors.toList());
 
         return accounts;
     }
 
 
     public void createAccount(AccountDTO dto) {
-        AccountEntity entity = accountMapper.toEntity(dto);
-
+        AccountEntity entity = accountMapper.accountDtoToEntity(dto);
+        System.out.println("createAccountWTF"+entity.getCustomerId());
+        System.out.println("getBalanceWTF"+entity.getBalance());
+        System.out.println("getIdWTF"+entity.getId());
         accountRepository.save(entity);
+
         if (entity.getBalance().doubleValue() > 0.0) {
             transactionService.createTransaction(
                     new TransactionDTO(entity.getId(), entity.getBalance()));
